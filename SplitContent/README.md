@@ -1,4 +1,4 @@
-# rhubarb-geek-nz/SplitContent
+# rhubarb-geek-nz.SplitContent
 Split-Content tool for PowerShell
 
 Reads the content of a file as either text or binary.
