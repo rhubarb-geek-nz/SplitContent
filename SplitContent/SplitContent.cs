@@ -12,12 +12,12 @@ namespace RhubarbGeekNz.SplitContent
     [OutputType(typeof(byte[]))]
     sealed public class SplitContent : PSCmdlet
     {
-        [Parameter(ParameterSetName = "literal-byte", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source literal filename", Position = 0)]
-        [Parameter(ParameterSetName = "literal-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source literal filename", Position = 0)]
+        [Parameter(ParameterSetName = "literal-byte", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source literal filename")]
+        [Parameter(ParameterSetName = "literal-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source literal filename")]
         public string[] LiteralPath;
 
-        [Parameter(ParameterSetName = "wild-byte", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns")]
-        [Parameter(ParameterSetName = "wild-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns")]
+        [Parameter(ParameterSetName = "wild-byte", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns", Position = 0)]
+        [Parameter(ParameterSetName = "wild-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns", Position = 0)]
         public string[] Path;
 
         [Parameter(ParameterSetName = "literal-byte", Mandatory = false, HelpMessage = "Buffer Length")]
