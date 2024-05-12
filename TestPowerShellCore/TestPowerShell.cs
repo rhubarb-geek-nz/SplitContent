@@ -11,7 +11,6 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Xml.Linq;
 
 namespace RhubarbGeekNz.SplitContent
 {
@@ -107,6 +106,17 @@ namespace RhubarbGeekNz.SplitContent
             }
         }
 
+        [TestMethod]
+        public void TestTildeInExistingFile()
+        {
+            using (PowerShell powerShell = PowerShell.Create(initialSessionState))
+            {
+                powerShell.AddScript($"Split-Content -LiteralPath '~/.ssh/known_hosts'");
+
+                powerShell.Invoke();
+            }
+        }
+
 
         [TestMethod]
         public void TestFileNotFound()
@@ -159,6 +169,19 @@ namespace RhubarbGeekNz.SplitContent
 
                     Assert.IsTrue(caught, exName);
                 }
+            }
+        }
+
+        [TestMethod]
+        public void TestPipelineValue()
+        {
+            using (PowerShell powerShell = PowerShell.Create(initialSessionState))
+            {
+                powerShell.AddScript($"'README.md' | Split-Content");
+
+                var outputPipeline = powerShell.Invoke();
+
+                Assert.AreEqual(8, outputPipeline.Count);
             }
         }
     }

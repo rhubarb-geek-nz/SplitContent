@@ -16,8 +16,8 @@ namespace RhubarbGeekNz.SplitContent
         [Parameter(ParameterSetName = "literal-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source literal filename")]
         public string[] LiteralPath;
 
-        [Parameter(ParameterSetName = "wild-byte", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns", Position = 0)]
-        [Parameter(ParameterSetName = "wild-char", Mandatory = true, ValueFromPipeline = true, HelpMessage = "Source filename patterns", Position = 0)]
+        [Parameter(ParameterSetName = "wild-byte", Mandatory = true, ValueFromPipeline = false, HelpMessage = "Source filename patterns", Position = 0)]
+        [Parameter(ParameterSetName = "wild-char", Mandatory = true, ValueFromPipeline = false, HelpMessage = "Source filename patterns", Position = 0)]
         public string[] Path;
 
         [Parameter(ParameterSetName = "literal-byte", Mandatory = false, HelpMessage = "Buffer Length")]
